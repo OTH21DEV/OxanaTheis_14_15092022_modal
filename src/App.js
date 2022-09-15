@@ -1,25 +1,13 @@
-import logo from './logo.svg';
-import './App.css';
+//import logo from './logo.svg';
+//import './App.css';
+
+import React, { useState } from "react";
+import Modal from "./component/Modal/Modal";
+import icon from "../src/assets/icon.svg";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  const [modalIsOpen, setModalIsOpen] = useState(true);
+  return <Modal icon={icon} show={modalIsOpen}  setShow={setModalIsOpen} title={"Well done!"} text={"Employee was successfully created!"} />;
 }
 
 export default App;
