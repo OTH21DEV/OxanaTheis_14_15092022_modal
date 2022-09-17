@@ -29,7 +29,7 @@ const Modal = ({ icon, closeIcon, show, setShow, title, text }) => {
             <h1 className="modal__title">{title}</h1>
             <p className="modal__text">{text}</p>
             <div className="wrapper-btn">
-              <button type="submit" className="btn" onClick={(e) => handleKeydown(e)}>
+              <button type="button" className="btn" onClick={(e) => handleKeydown(e)}>
                 OK{" "}
               </button>
             </div>
