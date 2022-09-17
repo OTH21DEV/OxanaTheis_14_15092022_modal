@@ -1,70 +1,98 @@
-# Getting Started with Create React App
+[![MADE WITH - JAVASCRIPT](https://img.shields.io/badge/MADE_WITH-JAVASCRIPT-1D75C2?style=for-the-badge)](https://) [![STYLED - CSS](https://img.shields.io/badge/STYLED-CSS-E034BE?style=for-the-badge)](https://) ![BUILT WITH - REACT](https://img.shields.io/badge/BUILT_WITH-REACT-4F28B0?style=for-the-badge) 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
 
-In the project directory, you can run:
+# Modal app - pop up plugin 
 
-### `npm start`
+This project is a React plugin allowing to display an alert in other words a pop up information. <br />Contains a smoth animation while appear on the screen and can be controlled by keyboard.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Installation
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+$ npm install --save OxanaTheis_14_15092022_modal<br />
+$ yarn add OxanaTheis_14_15092022_modal
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## How the plugin works
 
-### `npm run build`
+- Import module : 
+```
+import Modal from "../../src/lib/components/Modal";
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Create your state in your component:
+```
+const [modalIsOpen, setModalIsOpen] = useState(true);
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- Render your alert in your component:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```
+return <Modal icon={icon} closeIcon={close_icon} show={modalIsOpen} setShow={setModalIsOpen} title={"Well done!"} text={"Employee was successfully created!"} />;
+```
 
-### `npm run eject`
+### ```<Modal/> params:```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- icon : svg component used in the Modal (decoration purpose).<br />
+Import the svg component as:
+```
+import icon from "../assets/icon.svg";
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- closeIcon : svg component used in the Modal - close icon.<br />
+Import the svg component as:
+```
+import close_icon from "../assets/close.svg";
+```
+- show : Boolean state use to show and hide the Modal 
+- setShow : function that updates the state
+- title : Modal heading
+- text: additional text information 
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Example
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+```
+import "./style.css";
 
-## Learn More
+const Modal = ({ icon, closeIcon, show, setShow, title, text }) => {
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+  const handleKeydown = useCallback((e) => {
+    if (e.type === "click" || e.key === "Escape" || e.key === "Enter") {
+      setShow(false);
+    }
+  }, []);
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+  useEffect(() => {
+    document.addEventListener("keydown", handleKeydown);
 
-### Code Splitting
+    return () => {
+      document.removeEventListener("keydown", handleKeydown);
+    };
+  }, []);
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+  return (
+    show && (
+      <>
+        <div className="wrapper-modal">
+          <div className="modal">
+            <div className="modal-icon">
+              <img src={icon} alt="" />
+            </div>
+            <img className="modal-close-icon" src={closeIcon} alt="" onKeyPress={(e) => handleKeydown(e)} onClick={(e) => handleKeydown(e)}></img>
+            <h1 className="modal__title">{title}</h1>
+            <p className="modal__text">{text}</p>
+            <div className="wrapper-btn">
+              <button type="button" className="btn" onClick={(e) => handleKeydown(e)}>
+                OK{" "}
+              </button>
+            </div>
+          </div>
+        </div>
+      </>
+    )
+  );
+};
+```
 
-### Analyzing the Bundle Size
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+![modal](https://user-images.githubusercontent.com/81259062/190851870-c1d58c7e-98a0-45bc-8dd1-b5f760946756.gif)
