@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Modal from "../../src/lib/components/Modal";
+import Modal from "../lib/components/Modal";
 import icon from "../assets/icon.svg";
 import close_icon from "../assets/close.svg";
 
