@@ -1,8 +1,26 @@
 {
-  "name": "p14_wealth_health_hrnet_modal",
+  "name": "react-modal-oth",
+  "description": "Plugin allowing to display an alert ",
+  "author": "Oxana Theis",
+  "keywords": [
+    "react",
+    "modal",
+    "components"
+  ],
   "version": "0.1.0",
-  "private": true,
+  "private": false,
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OTH21DEV/OxanaTheis_14_15092022_modal.git"
+  },
   "dependencies": {
+    "@babel/polyfill": "^7.12.1",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
@@ -13,7 +31,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "rm -rf dist && set NODE_ENV=production && babel src/lib --out-dir dist --copy-files",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -34,5 +52,11 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.18.10",
+    "@babel/core": "^7.19.1",
+    "@babel/preset-env": "^7.19.1",
+    "@babel/preset-react": "^7.18.6"
   }
 }

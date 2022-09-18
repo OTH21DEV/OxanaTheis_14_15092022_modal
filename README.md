@@ -8,15 +8,15 @@ This project is a React plugin allowing to display an alert in other words a pop
 
 ## Installation
 
-$ npm install --save OxanaTheis_14_15092022_modal<br />
-$ yarn add OxanaTheis_14_15092022_modal
+$ npm install --save react-modal-oth<br />
+$ yarn add react-modal-oth
 
 
 ## How the plugin works
 
 - Import module : 
 ```
-import Modal from "../../src/lib/components/Modal";
+import Modal from "react-modal-oth";
 ```
 
 - Create your state in your component:
