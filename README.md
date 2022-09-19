@@ -8,7 +8,7 @@ This project is a React plugin allowing to display an alert in other words a pop
 
 ## Installation
 
-$ npm install --save react-modal-oth<br />
+$ npm i react-modal-oth<br />
 $ yarn add react-modal-oth
 
 
@@ -24,7 +24,7 @@ import Modal from "react-modal-oth";
 const [modalIsOpen, setModalIsOpen] = useState(true);
 ```
 
-- Render your alert in your component:
+- Render your Modal in your component:
 
 ```
 return <Modal icon={icon} closeIcon={close_icon} show={modalIsOpen} setShow={setModalIsOpen} title={"Well done!"} text={"Employee was successfully created!"} />;
@@ -35,13 +35,13 @@ return <Modal icon={icon} closeIcon={close_icon} show={modalIsOpen} setShow={set
 - icon : svg component used in the Modal (decoration purpose).<br />
 Import the svg component as:
 ```
-import icon from "../assets/icon.svg";
+import icon from "react-modal-oth/dist/assets/icon.svg";
 ```
 
 - closeIcon : svg component used in the Modal - close icon.<br />
 Import the svg component as:
 ```
-import close_icon from "../assets/close.svg";
+import close_icon from "react-modal-oth/dist/assets/close.svg";
 ```
 - show : Boolean state use to show and hide the Modal 
 - setShow : function that updates the state

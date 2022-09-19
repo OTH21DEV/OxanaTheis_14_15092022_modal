@@ -13,7 +13,7 @@ Object.defineProperty(exports, "icon", {
 
 var _Modal = _interopRequireDefault(require("./components/Modal.js"));
 
-var _icon = _interopRequireDefault(require("../src/assets/icon.svg"));
+var _icon = _interopRequireDefault(require("./assets/icon.svg"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 

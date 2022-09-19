@@ -1,5 +1,5 @@
 import Modal from "./components/Modal.js";
-import icon from "../src/assets/icon.svg";
+import icon from "./assets/icon.svg";
 
 export default Modal;
-export { icon };
+export { icon} ;
