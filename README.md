@@ -6,6 +6,10 @@
 
 This project is a React plugin allowing to display an alert in other words a pop up information. <br />Contains a smoth animation while appear on the screen and can be controlled by keyboard.
 
+
+## NPM link 
+https://www.npmjs.com/package/react-modal-oth
+
 ## Installation
 
 $ npm i react-modal-oth<br />
